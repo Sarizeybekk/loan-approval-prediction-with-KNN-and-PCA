@@ -1,0 +1,1 @@
+This project predicts loan approval status using K-Nearest Neighbors (KNN) and Principal Component Analysis (PCA) for dimensionality reduction. It utilizes a Pipeline structure for preprocessing, PCA, and model training.
