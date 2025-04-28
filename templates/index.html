@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kredi Onayı Tahmini</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kredi Onayı Tahmin Sistemi</h1>
+
+        <form action="/predict" method="post">
+
+            <label>Bakmakla Yükümlü Kişi Sayısı:</label>
+            <input type="number" name="no_of_dependents" required><br>
+
+            <label>Eğitim Durumu (0: Mezun, 1: Mezun Değil):</label>
+            <input type="number" name="education" min="0" max="1" required><br>
+
+            <label>Serbest Çalışıyor musunuz? (0: Hayır, 1: Evet):</label>
+            <input type="number" name="self_employed" min="0" max="1" required><br>
+
+            <label>Yıllık Gelir:</label>
+            <input type="number" name="income_annum" required><br>
+
+            <label>Kredi Miktarı:</label>
+            <input type="number" name="loan_amount" required><br>
+
+            <label>Kredi Süresi (Ay):</label>
+            <input type="number" name="loan_term" required><br>
+
+            <label>CIBIL Skoru (Kredi Skoru):</label>
+            <input type="number" name="cibil_score" required><br>
+
+            <label>Konut Varlık Değeri:</label>
+            <input type="number" name="residential_assets_value" required><br>
+
+            <label>Ticari Varlık Değeri:</label>
+            <input type="number" name="commercial_assets_value" required><br>
+
+            <label>Lüks Varlık Değeri:</label>
+            <input type="number" name="luxury_assets_value" required><br>
+
+            <label>Banka Varlık Değeri:</label>
+            <input type="number" name="bank_asset_value" required><br>
+
+            <button type="submit">Tahmin Et</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <h2>Sonuç:</h2>
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
